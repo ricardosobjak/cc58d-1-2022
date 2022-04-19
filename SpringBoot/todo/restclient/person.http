@@ -12,9 +12,9 @@ POST {{URL}}
 Content-Type: application/json
 
 {
-    "name": "Juca",
-    "email": "juca@gmail.com",
-    "username": "juca",
+    "name": "Juca1",
+    "email": "juca1@gmail.com",
+    "username": "juca1",
     "password": "1234",
     "birth": "2000-05-05",
     "type": "ADMIN"
@@ -22,6 +22,17 @@ Content-Type: application/json
 
 ### Atualizar uma pessoa
 PUT {{URL}}/1
+Content-Type: application/json
+
+{
+    "name": "Marcelo",
+    "email": "mar@gmail.com",
+    "username": "mar",
+    "password": "1234",
+    "birth": "2000-05-05",
+    "type": "ADMIN"
+}
+
 
 ### Deletar uma pessoa
 DELETE {{URL}}/1
