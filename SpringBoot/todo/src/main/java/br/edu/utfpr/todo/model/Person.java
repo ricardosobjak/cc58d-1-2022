@@ -3,16 +3,44 @@ package br.edu.utfpr.todo.model;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class Person {
-    private Long id;
-    private String name;
-    private String email;
-    private String username;
-    private String password;
-    private LocalDate birth;
-    private LocalDateTime updatedAt;
-    private LocalDateTime createdAt;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "tb_person")
+public class Person {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+    
+    @Column(name = "name", nullable = false, length = 100)
+    private String name;
+
+    @Column(name = "email", unique = true, nullable = false, length = 100)
+    private String email;
+
+    @Column(name = "username", unique = true, nullable = false, length = 100)
+    private String username;
+
+    @Column(name = "password", nullable = false)
+    private String password;
+
+    @Column(name = "birth")
+    private LocalDate birth;
+
+    @Column(name = "type")
+    private PersonType type;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 
     public Long getId() {
         return this.id;
@@ -20,6 +48,14 @@ public class Person {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public PersonType getType() {
+        return type;
+    }
+
+    public void setType(PersonType type) {
+        this.type = type;
     }
 
     public String getName() {
