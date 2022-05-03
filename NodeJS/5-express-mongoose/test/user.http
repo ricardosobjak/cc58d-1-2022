@@ -1,0 +1,19 @@
+@URL = http://localhost:3000/users
+
+### Criar usuário
+POST {{URL}}
+Content-Type: application/json
+
+{
+    "name": "Ricardo1",
+    "email": "rs1@gmail.com",
+    "login": "rs",
+    "password": "1234"
+}
+
+
+### Obter todos os usuários
+GET {{URL}}
+
+### Obter 1 usuário pelo ID
+GET {{URL}}/626939d6617ce0d34065bdda
