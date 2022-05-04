@@ -1,21 +1,20 @@
 HELP.md
-.gradle
-build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
+java/**/build/
+java/**/!gradle/wrapper/gradle-wrapper.jar
+java/!**/src/main/**/build/
+java/!**/src/test/**/build/
 
 ### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+java/**/.apt_generated
+java/**/.classpath
+java/**/.factorypath
+java/**/.project
+java/**/.settings
+java/**/.springBeans
+java/**/.sts4-cache
+java/**/bin/
+java/**/!**/src/main/**/bin/
+java/**/!**/src/test/**/bin/
 
 ### IntelliJ IDEA ###
 .idea

@@ -33,7 +33,7 @@ router.post('/', async (req, res) => {
         token: generateToken({ id: user.id }),
         user,
         loggedIn: now,
-        expiresIn: new Date(now.getTime + EXPIRES * 1000)
+        expiresIn: new Date(now.getTime() + EXPIRES * 1000)
     });
 });
 
