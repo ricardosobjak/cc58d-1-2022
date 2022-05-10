@@ -1,5 +1,7 @@
 @URL = http://localhost:3000/users
 
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjkzOWQ2NjE3Y2UwZDM0MDY1YmRkYSIsImlhdCI6MTY1MTY2NTQ4MSwiZXhwIjoxNjUxNzUxODgxfQ.21J6bATCdkV8h0VJcXaCi8UfZIgXxNmCQ8QdiuakEso
+
 ### Criar usuário
 POST {{URL}}
 Content-Type: application/json
@@ -14,6 +16,8 @@ Content-Type: application/json
 
 ### Obter todos os usuários
 GET {{URL}}
+Authorization: {{token}}
 
 ### Obter 1 usuário pelo ID
 GET {{URL}}/626939d6617ce0d34065bdda
+Authorization: {{token}}

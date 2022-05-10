@@ -4,13 +4,15 @@ var router = express.Router();
 const mongoose = require('mongoose');
 const User = require('../model/User');
 
+const isAuthorized = require('../middlewares/isAuthorized');
+
 // Obter todos os usuários
-router.get('/', async function (req, res) {
+router.get('/', isAuthorized, async function (req, res) {
   res.json(await User.find({}, { password: 0, __v: 0 }));
 });
 
 // Obter um usuário pelo ID
-router.get('/:id', async (req, res) => {
+router.get('/:id', isAuthorized, async (req, res) => {
   const { id } = req.params;
 
   //const user = await User.findById(id);
