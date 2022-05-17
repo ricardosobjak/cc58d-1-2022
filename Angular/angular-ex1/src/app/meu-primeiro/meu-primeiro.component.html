@@ -1,0 +1,35 @@
+<h2>Primeiro componente</h2>
+
+<p>Feito por {{ nome }}
+<p>
+
+    <br />
+
+    <input type="text" value="{{ nome }}" [style.background-color]="destacar ? 'red' : 'white'">
+
+    <input type="text" [value]="nome" [class.destaque]="destacar">
+    <br />
+
+    <button (click)="digaOi()" (mouseover)="mudarDestaque()" (mouseout)="mudarDestaque()">Clique Aqui</button>
+
+<div *ngIf="destacar">
+    O mouse está sobre o botão!
+</div>
+
+<hr>
+<h4>Meus hobbies</h4>
+<ul>
+    <li *ngFor="let hobby of hobbies">
+        {{ hobby }}
+    </li>
+</ul>
+
+<div *ngFor="let hobby of hobbies">
+    {{ hobby }}
+</div>
+
+<table border="1">
+    <tr *ngFor="let hobby of hobbies">
+        <td>{{hobby}}</td>
+    </tr>
+</table>
