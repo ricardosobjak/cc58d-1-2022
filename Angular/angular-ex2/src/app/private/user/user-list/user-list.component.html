@@ -1,0 +1,20 @@
+<h1>Usuários</h1>
+
+<div>
+    <table>
+        <tr>
+            <th></th>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th></th>
+        </tr>
+
+        <tr *ngFor="let user of users">
+            <td><img src="{{ user.avatar }}" /></td>
+            <td>{{ user.first_name }} {{user.last_name}}</td>
+            <td>{{ user.email }}</td>
+            <td><button>Del</button></td>
+        </tr>
+    </table>
+
+</div>
