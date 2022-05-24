@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { API } from 'src/app/app.const';
 import { Observable } from 'rxjs';
-import { UserListResult } from './user.model';
+import { SingleUserResult, User, UserListResult } from './user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +20,22 @@ export class UserService {
 
     return this.http.get<UserListResult>(API + 'users'
       + ((params.length > 0) ? '?' + params.join('&') : '')
+    );
+  }
+
+  public getUser(id: number): Observable<SingleUserResult> {
+    return this.http.get<SingleUserResult>(API + "users/" + id);
+  }
+
+  public getHeaders() {
+    return new HttpHeaders({
+      'Content-type': 'application/json'
+    });
+  }
+
+  public create(user: User) : Observable<User> {
+    return this.http.post<User>(API + 'users', JSON.stringify(user),
+      { headers:  this.getHeaders() }
     );
   }
 }

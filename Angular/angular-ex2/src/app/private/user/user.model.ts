@@ -6,6 +6,10 @@ export class User {
     email!: string;
 }
 
+export class SingleUserResult {
+    data!: User;
+}
+
 export class UserListResult {
     data!: User[];
     page!: number;
