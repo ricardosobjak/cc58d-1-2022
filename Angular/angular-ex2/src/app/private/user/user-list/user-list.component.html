@@ -1,20 +1,43 @@
 <h1>Usuários</h1>
 
-<div>
-    <table>
-        <tr>
-            <th></th>
-            <th>Nome</th>
-            <th>E-mail</th>
-            <th></th>
-        </tr>
-
-        <tr *ngFor="let user of users">
-            <td><img src="{{ user.avatar }}" /></td>
-            <td>{{ user.first_name }} {{user.last_name}}</td>
-            <td>{{ user.email }}</td>
-            <td><button>Del</button></td>
-        </tr>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of apiResult.data">
+                <td class="text-center">
+                    <img src="{{ user.avatar }}" width="32" class="rounded" />
+                </td>
+                <td>{{ user.first_name }} {{user.last_name}}</td>
+                <td>{{ user.email }}</td>
+                <td><button class="btn btn-danger">Del</button></td>
+            </tr>
+        </tbody>
     </table>
+
+    <div>
+        <ul class="pagination justify-content-center">
+            <li *ngFor="let page of pages(apiResult.total_pages)"
+                class="page-item">
+                <a class="btn btn-sm btn-primary me-1" 
+                    (click)="loadUsers(page + 1)">{{ page + 1 }}</a>
+            </li>
+            <li>
+                <select class="form-select" [(ngModel)]="perPage"
+                        (change)="loadUsers(1)">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                </select>
+            </li>
+        </ul>
+    </div>
 
 </div>

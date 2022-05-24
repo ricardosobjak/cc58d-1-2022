@@ -10,10 +10,16 @@ import { UserListResult } from './user.model';
 })
 export class UserService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // Obter todos os usuários da API
-  public getAll(): Observable<UserListResult> {
-    return this.http.get<UserListResult>(API + 'users');
+  public getAll(page?: number, perPage?: number): Observable<UserListResult> {
+    let params = [];
+    if (page) params.push(`page=${page}`);
+    if (perPage) params.push(`per_page=${perPage}`);
+
+    return this.http.get<UserListResult>(API + 'users'
+      + ((params.length > 0) ? '?' + params.join('&') : '')
+    );
   }
 }

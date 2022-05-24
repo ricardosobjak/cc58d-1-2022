@@ -4,6 +4,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const ROUTES: Routes = [
   { path: '', component: UserListComponent },
@@ -19,7 +20,9 @@ const ROUTES: Routes = [
   ],
   imports: [
     CommonModule,
-    HttpClientModule, 
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(ROUTES)
   ]
 })

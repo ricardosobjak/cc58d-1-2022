@@ -8,19 +8,27 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  users: User[] = [];
+  apiResult!: UserListResult;
+  perPage: number = 5;
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService
-      .getAll()
-      .subscribe( (result: UserListResult) => {
-        console.log(result);
-        this.users = result.data;
-      } );
+    this.loadUsers();
   }
 
+  public loadUsers(page = 1) {
+    console.log(this.perPage)
+    this.userService
+    .getAll(page, this.perPage)
+    
+    .subscribe( (result: UserListResult) => {
+      console.log(result);
+      this.apiResult = result;
+    });
+  }
 
-
+  public pages(qtd: number) {
+    return new Array(qtd).keys();
+  }
 }

@@ -1,1 +1,19 @@
-<p>user-form works!</p>
+<h1>Usuário</h1>
+
+<div class="container">
+
+    <form class="d-grid gap-2" [formGroup]="form">
+        <label>Nome</label>
+        <input type="text" class="form-control" formControlName="firstName">
+
+        <label>Sobrenome</label>
+        <input type="text" class="form-control" formControlName="lastName">
+
+        <label>Email</label>
+        <input type="text" class="form-control" formControlName="email">
+
+        <button class="btn btn-primary" (click)="save()">Salvar</button>
+    </form>
+
+    
+</div>
